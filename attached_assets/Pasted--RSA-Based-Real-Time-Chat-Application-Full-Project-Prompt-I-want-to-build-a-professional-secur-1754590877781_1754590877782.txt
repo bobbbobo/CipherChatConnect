@@ -1,0 +1,314 @@
+🔐 RSA-Based Real-Time Chat Application – Full Project Prompt
+
+I want to build a professional, secure, real-time messaging web application that supports both educational RSA-based encryption and practical secure messaging, with the following detailed features and behavior:
+
+
+---
+
+🧠 GENERAL FUNCTIONALITY OVERVIEW
+
+🔑 Login & Signup System:
+
+Users can sign up and log in with a secure username/password system.
+
+If not logged in, users can still access the app with a temporary guest username.
+
+Guests can only use the public global chat, not private or group messages.
+
+Logged-in users can:
+
+Add people as friends by username
+
+Start private one-on-one chats
+
+Create and join group chats
+
+
+
+
+---
+
+💬 CHAT SYSTEM FUNCTIONALITY
+
+Real-time chat (RTC/WebSocket or similar).
+
+Three chat types:
+
+1. Main Public Chat – all users (guest or logged-in)
+
+
+2. Private Chats – only between two logged-in users
+
+
+3. Group Chats – multiple logged-in users
+
+
+
+
+🔒 RSA ENCRYPTION System:
+
+All messages are encrypted before sending and decrypted after receiving.
+
+Users can choose between two encryption modes:
+
+
+
+---
+
+🔧 ENCRYPTION SETTINGS
+
+Encryption Mode Options (Settings Tab):
+
+Mode 1: Hand RSA (Default)
+
+Uses my own RSA implementation (educational, visible math)
+
+Key pair is generated from small prime inputs (e.g., p = 11, q = 13)
+
+Users can view full encryption/decryption math steps (toggle: Show Math)
+
+
+Mode 2: Real RSA / More Encryption
+
+Uses proper large primes, padding, and secure key lengths
+
+Utilizes secure libraries like WebCrypto, node-rsa, or forge
+
+Math is hidden unless "Show Math" is enabled
+
+
+
+
+---
+
+🔎 KEY GENERATION TAB
+
+Users can generate public and private keys
+
+Enter custom p and q values (for Mode 1)
+
+Automatically generate large primes (for Mode 2)
+
+
+Toggle buttons:
+
+Show/Hide Math Steps (with full breakdown of n, e, d, φ(n), etc.)
+
+Import / Export Keys (download .json or copy-paste)
+
+
+
+
+---
+
+🔏 ENCRYPTION / DECRYPTION TAB
+
+Users can enter messages manually
+
+Encrypt or decrypt using current key pair
+
+Option to Show/Hide Math Steps for both processes
+
+Message input/output should clearly show:
+
+Plaintext
+
+Ciphertext
+
+Numerical transformations
+
+
+
+
+---
+
+💡 EDUCATIONAL MODE (Tab)
+
+Visualizer for how RSA works:
+
+Prime number selection
+
+n, φ(n), e, d calculations
+
+Modulo operations step-by-step
+
+Public vs private key breakdown
+
+Encryption/decryption flowchart
+
+
+Includes Session Key Visualizer for education (not used in actual messaging)
+
+
+
+---
+
+✨ OPTIONAL FEATURE SETTINGS
+
+(These can be toggled on/off in the Settings tab)
+
+✅ Toggle math step visibility (default ON in educational mode)
+
+✅ "More Encryption" toggle (to enable secure mode / lib-based RSA)
+
+✅ Self-destructing messages:
+
+Per-message toggle (delete on your side after X seconds)
+
+Doesn’t delete for others
+
+
+✅ Key sharing via QR Code (show QR or export file)
+
+✅ Typing indicator
+
+✅ Simple message animations (only when enabled)
+
+✅ File sharing (encrypted with current encryption method)
+
+
+
+---
+
+📁 FILE STRUCTURE EXPECTATIONS
+
+Use JavaScript or TypeScript (TypeScript preferred)
+
+Include:
+
+index.html
+
+styles.css
+
+main.ts or main.js
+
+rsa.ts or rsa.js (contains custom RSA implementation)
+
+chat.ts or chat.js (handles RTC and message encryption)
+
+Optional: settings.ts, auth.ts, ui.ts, etc.
+
+
+
+
+---
+
+📦 LIBRARY USAGE
+
+Allowed:
+
+WebSocket, Firebase, or Socket.IO for real-time chat
+
+Forge, node-rsa, or WebCrypto for advanced encryption (when enabled)
+
+QR Code libraries for key sharing
+
+UI libraries (like TailwindCSS or Bootstrap) for a clean professional design
+
+
+
+---
+
+🎨 UI/UX REQUIREMENTS
+
+Modern, responsive design
+
+Tabs: Home, Chat, Key Generator, Encrypt/Decrypt, Education, Settings
+
+Professional fonts, colors, and layout
+
+Dark/light mode toggle (optional)
+
+Clear indicators of encryption mode and status
+
+
+
+---
+
+✅ SUMMARY OF ACCESS LEVELS
+
+Feature	Guest	Logged-in User
+
+Use Main Chat	✅	✅
+Generate Keys	✅	✅
+Use Encrypt/Decrypt Tool	✅	✅
+Add Friends / Private Chat	❌	✅
+Group Chats	❌	✅
+Export/Import Keys	✅	✅
+Settings Access	✅	✅
+
+
+
+---
+
+This project should be professional, secure, educational, and fun to use.
+Base the RSA encryption around the custom implementation I provided earlier unless the user switches to "More Encryption" mode.
+Let users toggle between visual learning and real secure encryption via a clear settings UI.
+
+Ready to build this now. Start with a working TypeScript project skeleton that includes tab routing, placeholder RSA logic, and UI placeholders.
+🔧 Chat Features
+
+Support real-time communication (RTC) via WebSockets or Firebase.
+
+Must include:
+
+Global public chatroom (accessible to guests and logged-in users).
+
+Private 1-on-1 chats (requires login).
+
+Group chats (requires login).
+
+
+All messages:
+
+Are encrypted with RSA before sending.
+
+Are decrypted client-side upon receiving.
+
+
+Each message displays:
+
+Encrypted text.
+
+Decrypted text (with toggle to show/hide).
+
+Another thing is that the there is a other setting called something but what it does is it just shows the message instead of going though everything else 📁 Other Capabilities
+
+Encrypted file sharing (small text/image files only).
+
+RSA-based encryption for those files.
+
+Typing indicators.
+
+Optional AI Helper Tab to explain terms and assist users.
+
+
+
+---
+
+💄 UI Design Requirements
+
+Clean, modern UI with smooth transitions.
+
+Fully responsive (mobile + desktop).
+
+Dark/light mode toggle.
+
+Navigation bar or side panel with:
+
+Home
+
+Chat
+
+Educational Mode
+
+RSA Tools
+
+Settings
+
+AI Helper (optional)
+✨ Bonus (optional):
+
+Visual animation of RSA key exchange.
+
+Profile pictures or usernames in chat UI.
